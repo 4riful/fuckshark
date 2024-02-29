@@ -39,7 +39,8 @@ def load_changed_ips():
     return [details for location, details in last_ips.items() if details.get('status') == "✅ Changed"]
 
 
-# Generate WireGuard config and send to Telegram with aesthetic enhancements
+
+# Generate WireGuard config and send to Telegram 
 def generate_and_send_wireguard_config(changed_ips, send_as_code):
     for ip_details in changed_ips:
         payload = {
@@ -51,7 +52,7 @@ def generate_and_send_wireguard_config(changed_ips, send_as_code):
         response = requests.post("https://my.surfincn.com/vpn/wg-config", headers=headers, json=payload)
         if response.status_code == 200:
             config_text = response.text  # Moved inside the if condition
-            intro_message = f"🚀 New WireGuard Configuration for {ip_details['connectionName']} 🚀"
+            intro_message = f"🚀🤖 New WireGuard Configuration for \n <b>{ip_details['connectionName'].upper()}</b> "
             send_telegram_message(intro_message, parse_mode="HTML")
 
             if send_as_code:
@@ -67,6 +68,52 @@ def generate_and_send_wireguard_config(changed_ips, send_as_code):
                 os.remove(config_filename)
         else:
             logging.error(f"❌ Failed to generate WireGuard config for {ip_details['connectionName']}")
+
+
+
+
+# Send document to Telegram with custom message
+def send_telegram_document(document_path, connection_name):
+    url = f"https://api.telegram.org/bot{bot_token}/sendDocument"
+    message = f"🚀 New WireGuard Configuration for {connection_name} 🚀\nCheck out the attached configuration file! 📁"
+    with open(document_path, 'rb') as document:
+        files = {
+            'document': document
+        }
+        data = {
+            'chat_id': chat_id,
+            'caption': message,
+            'parse_mode': 'HTML'
+        }
+        response = requests.post(url, files=files, data=data)
+        if response.status_code == 200:
+            logging.info(f"✅ Sent {document_path} to Telegram successfully.")
+        else:
+            logging.error(f"❌ Failed to send {document_path} to Telegram.")
+
+
+def send_telegram_message(message, parse_mode="HTML"):
+    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+    data = {"chat_id": chat_id, "text": message, "parse_mode": parse_mode}
+    response = requests.post(url, data=data)
+    if response.status_code == 200:
+        logging.info("✅ Message sent to Telegram successfully.")
+    else:
+        logging.error(f"❌ Failed to send message to Telegram. Status: {response.status_code}, Response: {response.text}")
+
+def main():
+    parser = argparse.ArgumentParser(description="Send WireGuard configurations.")
+    parser.add_argument("-c", "--code", action="store_true", help="Send the configuration as code in the Telegram message.")
+    args = parser.parse_args()
+
+    changed_ips = load_changed_ips()
+    if changed_ips:
+        generate_and_send_wireguard_config(changed_ips, send_as_code=args.code)
+    else:
+        logging.info("🌈 No IP changes detected requiring WireGuard configuration update. All is well! 🌈")
+
+if __name__ == "__main__":
+    main()
 
 
 
