@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - 📜 %(message)s')
 # File path to the last known IPs JSON and Telegram Bot details
 last_ips_file = 'last_ips.json'
 userPrivKey = ""
-bot_token = '7188473194:AAFD_eRDHRdJWRmQ2vQWpPycOhnHjedEmpE'
+bot_token = 'x'
 chat_id = '1289941194'
 # Headers for the WireGuard configuration request
 headers = {
