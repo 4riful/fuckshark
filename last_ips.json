@@ -1,0 +1,56 @@
+{
+    "Hong Kong": {
+        "ip": "203.32.7.159",
+        "pubKey": "JYHdktdtuM7inbtsxRKSDpnBVTWQ5+QLZ/cWWmf4VRg=",
+        "connectionName": "hk-hkg.prod.surfshark.com",
+        "status": "✅ Changed"
+    },
+    "Seoul": {
+        "ip": "93.152.212.11",
+        "pubKey": "bD/m2mdKxJXG2wTkLsmWpiW8xZwkDdrrrwC44auOhQg=",
+        "connectionName": "kr-seo.prod.surfshark.com",
+        "status": "✅ Changed"
+    },
+    "Houston": {
+        "ip": "77.36.59.171",
+        "pubKey": "1g84fGxVJokKXdMYEJKjN6/opyYN/YSHmrMyw0v6VnM=",
+        "connectionName": "us-hou.prod.surfshark.com",
+        "status": "🛑 Unchanged"
+    },
+    "Taichung City": {
+        "ip": "23.230.221.226",
+        "pubKey": "P0vaGUOUE7V5bbGOYY2WgQeZnTZEHvIr+dfebU7W4Ao=",
+        "connectionName": "tw-tai.prod.surfshark.com",
+        "status": "🛑 Unchanged"
+    },
+    "Bangkok": {
+        "ip": "103.176.152.228",
+        "pubKey": "OoFY46j/w4uQFyFu/OQ/h3x+ymJ1DJ4UR1fwGNxOxk0=",
+        "connectionName": "th-bkk.prod.surfshark.com",
+        "status": "✅ Changed"
+    },
+    "Tokyo": {
+        "ip": "185.207.125.174",
+        "pubKey": "YJSjrc/WWOjQUyUi4iYcHb7LsWWoCY+2fK8/8VtC/BY=",
+        "connectionName": "jp-tok.prod.surfshark.com",
+        "status": "✅ Changed"
+    },
+    "Frankfurt am Main": {
+        "ip": null,
+        "pubKey": "fJDA+OA6jzQxfRcoHfC27xz7m3C8/590fRjpntzSpGo=",
+        "connectionName": "de-fra.prod.surfshark.com",
+        "status": "✅ Changed"
+    },
+    "Manchester": {
+        "ip": null,
+        "pubKey": "9R8He1cP8Laf5MT58FcaEYtPW/qnN3M9MQThIXOIvHs=",
+        "connectionName": "uk-man.prod.surfshark.com",
+        "status": "✅ Changed"
+    },
+    "London": {
+        "ip": null,
+        "pubKey": "iBJRXLZwXuWWrOZE1ZrAXEKMgV/z0WjG0Tks5rnWLBI=",
+        "connectionName": "uk-lon.prod.surfshark.com",
+        "status": "✅ Changed"
+    }
+}
